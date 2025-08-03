@@ -15,7 +15,13 @@ window.addEventListener('load', () => {
 
   if (side === 'top') {
     face.style.top = '0';
-    face.style.left = `${Math.random() * 80 + 10}%`;
+
+    // Evita el centro: usa extremos (5%-35% o 65%-95%)
+    const leftPos = Math.random() < 0.5
+      ? Math.random() * 30 + 5
+      : Math.random() * 30 + 65;
+    face.style.left = `${leftPos}%`;
+
     rotation = 'rotate(-90deg)';
   } else if (side === 'bottom') {
     face.style.bottom = '0';
@@ -67,4 +73,3 @@ document.body.addEventListener('click', (e) => {
     glitch.remove();
   }, 2500);
 });
-
