@@ -36,7 +36,6 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
-  white-space: nowrap; /* 👈 evita el salto de línea */
 }
 
 .face-link:hover ~ .message {
@@ -68,6 +67,10 @@ body {
   font-size: 14px;
   font-family: 'PT Mono', monospace;
   transform: translate(-50%, -50%);
+  white-space: nowrap;           /* 👈 Fuerza una sola línea */
+  max-width: 90vw;               /* 👈 Asegura que no se pase del viewport */
+  overflow: hidden;              /* 👈 Oculta si se sale (opcional) */
+  text-overflow: ellipsis;       /* 👈 Pone “...” si no cabe (opcional) */
   animation: fadePop 2.5s ease forwards;
   pointer-events: none;
   z-index: 999;
