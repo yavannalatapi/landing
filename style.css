@@ -33,8 +33,10 @@ body {
   color: #2a2aff;
   font-size: 14px;
   letter-spacing: 2px;
-  max-width: 80%;        /* ← NUEVO */
-  text-align: center;     /* ← NUEVO */
+  max-width: 80vw;        /* Limita el ancho visual */
+  text-align: center;     /* Centra si se parte */
+  white-space: normal;    /* Permite salto de línea */
+  word-break: break-word; /* Fuerza corte si hay necesidad */
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -51,7 +53,7 @@ body {
   }
 
   .message {
-    font-size: 12px;  /* antes era 14px */
+    font-size: 12px;  
     opacity: 1;
   }
 
