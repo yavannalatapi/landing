@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d5f52f;
+  font-family: 'PT Mono', monospace;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.face-link {
+  position: absolute;
+  top: 25%; /* antes era top: 0 */
+  right: 0px; /* puedes ajustar si quieres más hacia la izquierda */
+  display: inline-block;
+  z-index: 2;
+}
+
+.face-link img {
+  width: 10vw;         /* Tamaño relativo a pantalla */
+  min-width: 130px;    /* No más chica que esto */
+  max-width: 200px;    /* No más grande que esto */
+  cursor: pointer;
+}
+
+.message {
+  position: absolute;
+  top: 16%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2a2aff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.face-link:hover ~ .message {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .face-link img {
+    width: 10vw;
+    min-width: 90px;
+  }
+
+  .message {
+    font-size: 12px;  /* antes era 14px */
+    opacity: 1;
+  }
+}
+
+}
+.face-link:hover ~ .message {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .message {
+    opacity: 1;
+  }
+}
+
+.glitch-frase {
+  position: absolute;
+  color: #2a2aff;
+  font-size: 14px;
+  font-family: 'PT Mono', monospace;
+  transform: translate(-50%, -50%);
+  animation: fadePop 2.5s ease forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fadePop {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
