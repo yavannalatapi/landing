@@ -10,21 +10,22 @@ body {
   overflow: hidden;
 }
 
+/* 🔵 CARITA */
 .face-link {
   position: absolute;
-  top: 25%; /* antes era top: 0 */
-  right: 0px; /* puedes ajustar si quieres más hacia la izquierda */
   display: inline-block;
   z-index: 2;
 }
 
 .face-link img {
-  width: 10vw;         /* Tamaño relativo a pantalla */
-  min-width: 130px;    /* No más chica que esto */
-  max-width: 200px;    /* No más grande que esto */
+  width: 10vw;
+  min-width: 130px;
+  max-width: 200px;
   cursor: pointer;
+  display: block;
 }
 
+/* 🔵 MENSAJE "COMING SOON" EN MEDIO */
 .message {
   position: absolute;
   top: 16%;
@@ -36,57 +37,42 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  text-align: center;
 }
 
 .face-link:hover ~ .message {
   opacity: 1;
 }
 
-@media (max-width: 768px) {
-  .face-link img {
-    width: 10vw;
-    min-width: 90px;
-  }
-
-  .message {
-    font-size: 12px;  
-    opacity: 1;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .message {
-    opacity: 1;
-  }
-}
-
+/* 🔵 FRASES GLITCHY */
 .glitch-frase {
   position: absolute;
   color: #2a2aff;
   font-size: 14px;
   font-family: 'PT Mono', monospace;
   transform: translate(-50%, -50%);
-  white-space: nowrap;           /* 👈 Fuerza una sola línea */
-  max-width: 90vw;               /* 👈 Asegura que no se pase del viewport */
-  overflow: hidden;              /* 👈 Oculta si se sale (opcional) */
-  text-overflow: ellipsis;       /* 👈 Pone “...” si no cabe (opcional) */
+  white-space: nowrap;
+  max-width: 90vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
   animation: fadePop 2.5s ease forwards;
   pointer-events: none;
   z-index: 999;
 }
 
+/* 🔵 ANIMACIÓN PARA FRASE */
 @keyframes fadePop {
   0% {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
   }
   10% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
   }
   90% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-  }
-}
+    transform: translate(-50%, -50%) scale(0.95);
