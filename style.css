@@ -36,7 +36,6 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
-  white-space: nowrap;
 }
 
 .face-link:hover ~ .message {
@@ -52,6 +51,7 @@ body {
   .message {
     font-size: 12px;  /* antes era 14px */
     opacity: 1;
+    white-space: nowrap;
   }
 }
 
