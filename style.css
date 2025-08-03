@@ -36,6 +36,7 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  white-space: nowrap; /* 👈 evita el salto de línea */
 }
 
 .face-link:hover ~ .message {
@@ -52,11 +53,7 @@ body {
     font-size: 12px;  /* antes era 14px */
     opacity: 1;
   }
-}
 
-}
-.face-link:hover ~ .message {
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -74,7 +71,6 @@ body {
   animation: fadePop 2.5s ease forwards;
   pointer-events: none;
   z-index: 999;
-  white-space: nowrap;
 }
 
 @keyframes fadePop {
