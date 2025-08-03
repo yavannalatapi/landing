@@ -1,27 +1,66 @@
-// Frases raras ✨
+const face = document.querySelector('.face-link');
+
+window.addEventListener('load', () => {
+  // Borrar posiciones anteriores
+  face.style.top = '';
+  face.style.bottom = '';
+  face.style.left = '';
+  face.style.right = '';
+
+  const position = ['top', 'bottom', 'left', 'right'];
+  const side = position[Math.floor(Math.random() * position.length)];
+
+  // Rotación para simular que se asoma 👀
+  let rotation = 'rotate(0deg)';
+
+  if (side === 'top') {
+    face.style.top = '0';
+    face.style.left = `${Math.random() * 80 + 10}%`;
+    rotation = 'rotate(-90deg)';
+  } else if (side === 'bottom') {
+    face.style.bottom = '0';
+    face.style.left = `${Math.random() * 80 + 10}%`;
+    rotation = 'rotate(90deg)';
+  } else if (side === 'left') {
+    face.style.left = '0';
+    face.style.top = `${Math.random() * 80 + 10}%`;
+    rotation = 'rotate(180deg)';
+  } else if (side === 'right') {
+    face.style.right = '0';
+    face.style.top = `${Math.random() * 80 + 10}%`;
+    rotation = 'rotate(0deg)';
+  }
+
+  face.style.transform = rotation;
+});
+
+// Frases glitchy 👻
 const frases = [
   "nothing to see here",
   "move along",
   "you saw nothing",
-  "not ready yet",
   "coming soon"
 ];
 
-// Mostrar frase justo donde se hace clic
-document.addEventListener("click", function (e) {
-  if (e.target.closest(".face-link")) return;
+// Escuchar clics en toda la pantalla (excepto en la carita para que siga el link)
+document.body.addEventListener('click', (e) => {
+  const target = e.target.closest('.face-link');
+  if (target) return; // No mostrar frase si se hizo clic en la carita
 
-  const frase = document.createElement("div");
-  frase.textContent = frases[Math.floor(Math.random() * frases.length)];
-  frase.className = "glitch-frase";
+  const frase = frases[Math.floor(Math.random() * frases.length)];
+  const x = e.clientX;
+  const y = e.clientY;
 
-  // Posición basada en clic
-  frase.style.top = `${e.clientY}px`;
-  frase.style.left = `${e.clientX}px`;
+  const glitch = document.createElement('div');
+  glitch.className = 'glitch-frase';
+  glitch.innerText = frase;
+  glitch.style.left = `${x}px`;
+  glitch.style.top = `${y}px`;
 
-  document.body.appendChild(frase);
+  document.body.appendChild(glitch);
 
   setTimeout(() => {
-    frase.remove();
+    glitch.remove();
   }, 2500);
 });
+
