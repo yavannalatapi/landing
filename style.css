@@ -51,7 +51,6 @@ body {
   .message {
     font-size: 12px;  /* antes era 14px */
     opacity: 1;
-    white-space: nowrap;
   }
 }
 
@@ -75,6 +74,7 @@ body {
   animation: fadePop 2.5s ease forwards;
   pointer-events: none;
   z-index: 999;
+  white-space: nowrap;
 }
 
 @keyframes fadePop {
