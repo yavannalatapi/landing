@@ -76,8 +76,11 @@ body {
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.95);
+  }
+}
 
-    @media (max-width: 1024px) {
+/* ✅ SIEMPRE VISIBLE EN CELULARES Y TABLETS */
+@media (max-width: 1024px) {
   .message {
     opacity: 1 !important;
     font-size: 12px;
