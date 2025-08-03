@@ -13,11 +13,9 @@ window.addEventListener('load', () => {
     ? ['left', 'right']
     : ['top', 'bottom', 'left', 'right'];
 
-  // Elegir lado aleatoriamente
   const side = position[Math.floor(Math.random() * position.length)];
   console.log("👉 La carita apareció en:", side);
 
-  // Rotación para simular que se asoma 👀
   let rotation = 'rotate(0deg)';
 
   if (side === 'top') {
@@ -44,4 +42,37 @@ window.addEventListener('load', () => {
   face.style.transform = rotation;
 });
 
-// Frases glitchy
+// 🟣 Frases glitchy
+const frases = [
+  "nothing to see here",
+  "move along",
+  "you saw nothing",
+  "nope",
+  "not ready yet",
+  "getting ready",
+  "brb",
+  "click my face",
+  "coming soon"
+];
+
+// Mostrar frase en clic (menos en la cara)
+document.body.addEventListener('click', (e) => {
+  const target = e.target.closest('.face-link');
+  if (target) return;
+
+  const frase = frases[Math.floor(Math.random() * frases.length)];
+  const x = e.clientX;
+  const y = e.clientY;
+
+  const glitch = document.createElement('div');
+  glitch.className = 'glitch-frase';
+  glitch.innerText = frase;
+  glitch.style.left = `${x}px`;
+  glitch.style.top = `${y}px`;
+
+  document.body.appendChild(glitch);
+
+  setTimeout(() => {
+    glitch.remove();
+  }, 2500);
+});
