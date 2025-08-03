@@ -39,6 +39,10 @@ const frases = [
   "nothing to see here",
   "move along",
   "you saw nothing",
+  "nope",
+  "not ready yet",
+  "getting ready",
+  "brb",
   "coming soon"
 ];
 
