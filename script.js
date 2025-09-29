@@ -77,3 +77,22 @@ document.body.addEventListener('click', (e) => {
     glitch.remove();
   }, 2500);
 });
+
+// 🔸 Mostrar "click anywhere" mensaje al cargar
+window.addEventListener('load', () => {
+  const mensajesIniciales = [
+    "click anywhere"
+  ];
+
+  const mensaje = document.createElement('div');
+  mensaje.className = 'click-anywhere-message';
+  mensaje.innerText = mensajesIniciales[Math.floor(Math.random() * mensajesIniciales.length)];
+
+  document.body.appendChild(mensaje);
+
+  // Borrarlo después de 3 segundos
+  setTimeout(() => {
+    mensaje.remove();
+  }, 3000);
+});
+
