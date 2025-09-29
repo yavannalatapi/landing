@@ -78,21 +78,22 @@ document.body.addEventListener('click', (e) => {
   }, 2500);
 });
 
-// 🔸 Mostrar "click anywhere" mensaje al cargar
-window.addEventListener('load', () => {
+// 👉 Mostrar instrucción inicial con delay
+setTimeout(() => {
   const mensajesIniciales = [
     "click anywhere"
   ];
 
-  const mensaje = document.createElement('div');
-  mensaje.className = 'click-anywhere-message';
-  mensaje.innerText = mensajesIniciales[Math.floor(Math.random() * mensajesIniciales.length)];
+  const texto = mensajesIniciales[Math.floor(Math.random() * mensajesIniciales.length)];
+  const instruccion = document.createElement('div');
+  instruccion.className = 'instruccion-inicial';
+  instruccion.innerText = texto;
+  document.body.appendChild(instruccion);
 
-  document.body.appendChild(mensaje);
-
-  // Borrarlo después de 3 segundos
+  // Se elimina automáticamente con la animación
   setTimeout(() => {
-    mensaje.remove();
-  }, 3000);
-});
+    instruccion.remove();
+  }, 4000);
+}, 2000); // ← 👈 Delay de 2 segundos antes de mostrar
+
 
