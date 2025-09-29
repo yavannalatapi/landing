@@ -34,7 +34,7 @@ body {
   color: #2a2aff;
   font-size: 14px;
   letter-spacing: 2px;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.4s ease;
   pointer-events: none;
   text-align: center;
