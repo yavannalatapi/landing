@@ -51,6 +51,7 @@ const frases = [
   "nope",
   "not ready yet",
   "getting ready",
+  "refresh the page",
   "brb",
   "click my face",
   "coming soon"
